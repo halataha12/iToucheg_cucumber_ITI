@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="982.356" tests="20" skipped="0" failures="2" errors="0">
+<testcase classname="Add Product Functionality" name="Valid Registration and adding a product to the cart" time="66.196">
+<system-out><![CDATA[
+Given the user is on the Home Page..........................................passed
+When the user is on the Registration page...................................passed
+And the user enters valid credentials and click enter.......................passed
+And the user searches for Valid Product Name in the search bar..............passed
+When the user clicks on the Add to Cart.....................................passed
+Then pop up displayed show product successfully added to cart...............passed
+]]></system-out>
+</testcase>
+<testcase classname="Add Product Functionality" name="Adding product to the cart without being registered" time="32.043">
+<system-out><![CDATA[
+Given the user is on the Home Page..........................................passed
+When the user searches for valid Product Name in the search bar.............passed
+And the user clicks on the add to cart......................................passed
+Then Pop Up displayed show product successfully added to cart...............passed
+]]></system-out>
+</testcase>
+<testcase classname="checkOut functionality" name="User fills in billing information and proceeds with payment" time="126.968">
+<system-out><![CDATA[
+Given the user is Registered................................................passed
+When The user search for item and Add item to cart..........................passed
+And pop up displayed show Cart items and the user click on view Cart button.passed
+And The user click proceed to cart..........................................passed
+Then the user navigates to check out page...................................passed
+When the users enter their billing and shipping information.................passed
+And clicks Place order......................................................passed
+Then the order should be placed successfully and go to Order complete Page..passed
+]]></system-out>
+</testcase>
+<testcase classname="checkOut functionality" name="User Attempts to checkout with missing billing details" time="95.095">
+<system-out><![CDATA[
+Given the user is Registered................................................passed
+When The user search for item and Add item to cart..........................passed
+And pop up displayed show Cart items and the user click on view Cart button.passed
+And The user click proceed to cart..........................................passed
+Then the user navigates to check out page...................................passed
+When the user does not fall in the required billing details and clicks pace order.passed
+Then the user should see an error message indicating the missing fields.....passed
+]]></system-out>
+</testcase>
+<testcase classname="checkOut functionality" name="User fill coupon with don't exist coupon" time="86.297">
+<system-out><![CDATA[
+Given the user is Registered................................................passed
+When The user search for item and Add item to cart..........................passed
+And pop up displayed show Cart items and the user click on view Cart button.passed
+And The user click proceed to cart..........................................passed
+Then the user navigates to check out page...................................passed
+When user click on click here to enter you code.............................passed
+And User puts Invalid code and clicks on button.............................passed
+Then Message displayed says Coupon does not exist...........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Search for a product and view its details" name="View available product details" time="39.824">
+<system-out><![CDATA[
+Given the user is on the Home page..........................................passed
+When the user enters product in the search bar and clicks on search button..passed
+Then the search results page for products is displayed......................passed
+When the user clicks on the product which add to cart is visible............passed
+Then the product details page is displayed..................................passed
+And the user check the price of the product.................................passed
+And the product is available with the status In Stock.......................passed
+And the user can Add Product To cart........................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Search for a product and view its details" name="View unavailable product details" time="40.475">
+<system-out><![CDATA[
+Given the user is on the Home page..........................................passed
+When the user enters product in the search bar and clicks on search button..passed
+Then the search results page for products is displayed......................passed
+When the user clicks on the product which add to cart is invisible..........passed
+Then The product details page is displayed..................................passed
+And the user check the price of the Product.................................passed
+And the product status is Out of Stock......................................passed
+And the user is prompted to Notify when stock available with the option to provide an email and phone number..passed
+]]></system-out>
+</testcase>
+<testcase classname="Verify Dashboard" name="Ensure correct navigation to orders page" time="47.846">
+<system-out><![CDATA[
+Given the user is registered and in Dashboard Page..........................passed
+When the user clicks on the orders link.....................................passed
+Then the user should be navigated directly to the orders page...............passed
+]]></system-out>
+</testcase>
+<testcase classname="Verify Dashboard" name="Ensure correct navigation to downloads page" time="43.814">
+<system-out><![CDATA[
+Given the user is registered and in Dashboard Page..........................passed
+When the user clicks on the downloads link..................................passed
+Then the user should be navigated directly to the downloads page............passed
+]]></system-out>
+</testcase>
+<testcase classname="Verify Dashboard" name="Ensure correct navigation to Addresses page" time="46.1">
+<system-out><![CDATA[
+Given the user is registered and in Dashboard Page..........................passed
+When the user clicks on the Addresses link..................................passed
+Then the user should be navigated directly to the Addresses page............passed
+]]></system-out>
+</testcase>
+<testcase classname="Verify Dashboard" name="Ensure correct navigation to Account details page" time="42.724">
+<system-out><![CDATA[
+Given the user is registered and in Dashboard Page..........................passed
+When the user clicks on the Account details link............................passed
+Then the user should be navigated directly to the Account details page......passed
+]]></system-out>
+</testcase>
+<testcase classname="Verify Dashboard" name="Ensure correct navigation to My Coupons  page" time="46.356">
+<system-out><![CDATA[
+Given the user is registered and in Dashboard Page..........................passed
+When the user clicks on the My Coupons link.................................passed
+Then the user should be navigated directly to the My Coupons page...........passed
+]]></system-out>
+</testcase>
+<testcase classname="LogOut Functionality" name="logout user" time="82.224">
+<failure type="java.lang.AssertionError" message="user can not log Out expected [false] but found [true]">
+<![CDATA[java.lang.AssertionError: user can not log Out expected [false] but found [true]
+	at org.testng.Assert.fail(Assert.java:110)
+	at org.testng.Assert.failNotEquals(Assert.java:1413)
+	at org.testng.Assert.assertFalse(Assert.java:78)
+	at steps.LogOut.the_user_logged_out_successfully(LogOut.java:57)
+	at ✽.the user Logged out successfully(file:///C:/Users/TC/Desktop/New%20folder/iToucheg_Cucumber/./src/main/java/features/LogOut.feature:8)
+]]>
+</failure>
+<system-out><![CDATA[
+Given the user is on the home Page..........................................passed
+And The user is Registered..................................................passed
+When The user navigate to Dashboard.........................................passed
+And clicks on logout........................................................passed
+And user clicks to confirm Logout...........................................passed
+Then the user Logged out successfully.......................................failed
+]]></system-out>
+</testcase>
+<testcase classname="Login User" name="Successful login with valid data" time="26.928">
+<failure type="java.lang.AssertionError" message="The user must be redirected to the home page ,but this did not happen expected [https://www.itoucheg.com/] but found [https://www.itoucheg.com/?s=&amp;post_type=product]">
+<![CDATA[java.lang.AssertionError: The user must be redirected to the home page ,but this did not happen expected [https://www.itoucheg.com/] but found [https://www.itoucheg.com/?s=&post_type=product]
+	at org.testng.Assert.fail(Assert.java:110)
+	at org.testng.Assert.failNotEquals(Assert.java:1413)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:149)
+	at org.testng.Assert.assertEquals(Assert.java:131)
+	at org.testng.Assert.assertEquals(Assert.java:655)
+	at steps.Login.the_user_should_be_redirected_to_home_page(Login.java:55)
+	at ✽.the user should be redirected to Home Page(file:///C:/Users/TC/Desktop/New%20folder/iToucheg_Cucumber/./src/main/java/features/Login.feature:10)
+]]>
+</failure>
+<system-out><![CDATA[
+Given the user is on the home page..........................................passed
+When User click on Register or login Button.................................passed
+When the user enters an valid username......................................passed
+And the user enters a valid password........................................passed
+And the user clicks on the login button.....................................passed
+Then the user should be redirected to Home Page.............................failed
+]]></system-out>
+</testcase>
+<testcase classname="Login User" name="unsuccessful login with invalid data" time="29.328">
+<system-out><![CDATA[
+Given the user is on the home page..........................................passed
+When User click on Register or login Button.................................passed
+When the user enters an invalid username....................................passed
+And the user enters a invalid password......................................passed
+And the user clicks on the Login button.....................................passed
+And user clicks on login and signup Button..................................passed
+Then The user should be redirected to login and signup not dashboard........passed
+]]></system-out>
+</testcase>
+<testcase classname="Login User" name="unsuccessful login with empty data" time="31.264">
+<system-out><![CDATA[
+Given the user is on the home page..........................................passed
+When User click on Register or login Button.................................passed
+When user don't enter any data in username and password field and clicks on the Login Button.passed
+And user clicks on login and signup button..................................passed
+Then the user should be redirected to login and signup not Dashboard........passed
+]]></system-out>
+</testcase>
+<testcase classname="Search For Products Functionality" name="valid product search" time="18.42">
+<system-out><![CDATA[
+Given the user in home Page.................................................passed
+When The user searches for valid Product Name in the search bar.............passed
+Then The user should see a list of products.................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Search For Products Functionality" name="invalid product search" time="18.349">
+<system-out><![CDATA[
+Given the user in home Page.................................................passed
+When The user searches for invalid product name in the search bar...........passed
+Then The user should see a message no products found........................passed
+]]></system-out>
+</testcase>
+<testcase classname="User Registration" name="User Registration with Accepted Email and  Password" time="36.799">
+<system-out><![CDATA[
+Given the user in the home page.............................................passed
+When I click on Register or login Button....................................passed
+And I entered EmailAddress ,Password and click on Register Button...........passed
+Then the user Registered successfully.......................................passed
+]]></system-out>
+</testcase>
+<testcase classname="User Registration" name="User Registration with not Accepted Email and Accepted Password" time="24.947">
+<system-out><![CDATA[
+Given the user in the home page.............................................passed
+When I click on Register or login Button....................................passed
+And I entered not accepted email and accepted Password and click on Register Button.passed
+Then the user can not Register..............................................passed
+]]></system-out>
+</testcase>
+</testsuite>
